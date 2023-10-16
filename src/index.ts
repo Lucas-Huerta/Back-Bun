@@ -1,6 +1,7 @@
 import { Elysia, t } from 'elysia';
 import './database/db.setup';
 import { usersController } from './controllers/user.controller';
+import { pokemonController } from './controllers/pokemon.controller';
 import { logger } from '@grotto/logysia';
 import { cors } from '@elysiajs/cors';
 
@@ -18,6 +19,7 @@ app
         allowedHeaders: ['Content-Type', 'Authorization'],
       }))
       .use(usersController)
+      .use(pokemonController)
   )
   .listen(PORT, () => {
     console.log(`🦊 Elysia is running at ${app.server?.hostname}:${PORT}`);

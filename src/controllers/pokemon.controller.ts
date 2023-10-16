@@ -1,22 +1,21 @@
 import { Elysia, t } from 'elysia';
-import User from '../types/User'
+import Pokemon from '../types/Pokemon'
 
-export const usersController = (app: Elysia) =>
-  app.group("users", (app: Elysia) =>
+export const pokemonController = (app: Elysia) =>
+  app.group("pokemon", (app: Elysia) =>
     app
     .post('/post', async (handler: Elysia.Handler) => {
         try {
-          const newUser = new User();
-          newUser.username = handler.body.username;
-          newUser.email = handler.body.email;
-          newUser.password = handler.body.password;
+          const newPokemon = new Pokemon();
+          newPokemon.name = handler.body.name;
+          newPokemon.type = handler.body.type;
+          newPokemon.level = handler.body.level;
 
-          await newUser.save();
+          await newPokemon.save();
 
           handler.set.status = 201;
           return { message: 'Resource created successfully!', status: 201 };
         } catch (e: any) {
-          // If unique mongoose constraint (for username or email) is violated
           if (e.name === 'MongoServerError' && e.code === 11000) {
             handler.set.status = 422;
             return {
@@ -35,8 +34,8 @@ export const usersController = (app: Elysia) =>
 
     .get('/all', async ({ set }: Elysia.Set) => {
         try {
-          const users = await User.find({});
-          return users;
+          const pokemons = await Pokemon.find({});
+          return pokemons;
         } catch (e: unknown) {
           set.status = 500;
           return {
@@ -50,9 +49,9 @@ export const usersController = (app: Elysia) =>
         try {
           const { id } = handler.params;
 
-          const existingUser = await User.findById(id);
+          const existingPokemon = await Pokemon.findById(id);
 
-          if (!existingUser) {
+          if (!existingPokemon) {
             handler.set.status = 404;
             return {
               message: 'Requested resource was not found!',
@@ -60,7 +59,7 @@ export const usersController = (app: Elysia) =>
             };
           }
 
-          return existingUser;
+          return existingPokemon;
         } catch (e: unknown) {
           handler.set.status = 500;
           return {
@@ -74,9 +73,9 @@ export const usersController = (app: Elysia) =>
         try {
           const { id } = handler.params;
 
-          const existingUser = await User.findById(id);
+          const existingPokemon = await Pokemon.findById(id);
 
-          if (!existingUser) {
+          if (!existingPokemon) {
             handler.set.status = 404;
             return {
               message: `User with id: ${id} was not found.`,
@@ -84,7 +83,7 @@ export const usersController = (app: Elysia) =>
             };
           }
 
-          await User.findOneAndRemove({ _id: id });
+          await Pokemon.findOneAndRemove({ _id: id });
 
           return {
             message: `Resource deleted successfully!`,
