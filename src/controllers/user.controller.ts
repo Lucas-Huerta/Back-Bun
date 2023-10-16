@@ -1,5 +1,5 @@
 import { Elysia, t } from 'elysia';
-import User, {IUser} from '../types/User'
+import User from '../types/User'
 
 export const usersController = (app: Elysia) =>
   app.group("", (app: Elysia) =>
@@ -31,9 +31,9 @@ export const usersController = (app: Elysia) =>
             status: 500,
           };
         }
-      })
+    })
 
-      .get('/all', async ({ set }: Elysia.Set) => {
+    .get('/all', async ({ set }: Elysia.Set) => {
         try {
           const users = await User.find({});
           return users;
@@ -44,7 +44,7 @@ export const usersController = (app: Elysia) =>
             status: 500,
           };
         }
-      })
+    })
 
       .get('/:id', async (handler: Elysia.Handler) => {
         try {
@@ -68,7 +68,7 @@ export const usersController = (app: Elysia) =>
             status: 500,
           };
         }
-      })
+    })
 
       .delete('/delete/:id', async (handler: Elysia.Handler) => {
         try {
@@ -97,5 +97,5 @@ export const usersController = (app: Elysia) =>
             status: 500,
           };
         }
-      })
-  );
+    })
+);
