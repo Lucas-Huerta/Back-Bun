@@ -11,8 +11,9 @@ export const usersController = (app: Elysia) =>
           newUser.email = handler.body.email;
           newUser.password = handler.body.password;
 
+          await newUser.save();
+
           handler.set.status = 201;
-          return newUser;
         } catch (e: any) {
           // If unique mongoose constraint (for username or email) is violated
           if (e.name === 'MongoServerError' && e.code === 11000) {
@@ -68,7 +69,7 @@ export const usersController = (app: Elysia) =>
         }
       })
 
-      .delete('/:id', async (handler: Elysia.Handler) => {
+      .delete('/delete/:id', async (handler: Elysia.Handler) => {
         try {
           const { id } = handler.params;
 
