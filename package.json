@@ -1,12 +1,19 @@
 {
-	"name": "my-bun",
-	"module": "index.tsx",
-	"type": "module",
-	"scripts": {
-		"dev": "bun run index.tsx",
-		"start": "bun --watch index.tsx"
-	},
-	"devDependencies": {
-		"bun-types": "^0.7.0"
-	}
+  "name": "my-bun",
+  "module": "index.tsx",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run src/index.tsx",
+    "start": "bun run --watch src/index.tsx"
+  },
+  "devDependencies": {
+    "bun-types": "^1.0.6"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^0.7.1",
+    "@elysiajs/jwt": "^0.7.0",
+    "@grotto/logysia": "^0.0.5",
+    "elysia": "^0.7.17",
+    "mongoose": "^7.6.2"
+  }
 }
