@@ -14,6 +14,7 @@ export const usersController = (app: Elysia) =>
           await newUser.save();
 
           handler.set.status = 201;
+          return { message: 'Resource created successfully!', status: 201 };
         } catch (e: any) {
           // If unique mongoose constraint (for username or email) is violated
           if (e.name === 'MongoServerError' && e.code === 11000) {
