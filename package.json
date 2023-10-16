@@ -1,0 +1,12 @@
+{
+	"name": "my-bun",
+	"module": "index.tsx",
+	"type": "module",
+	"scripts": {
+		"dev": "bun run index.tsx",
+		"start": "bun --watch index.tsx"
+	},
+	"devDependencies": {
+		"bun-types": "^0.7.0"
+	}
+}
