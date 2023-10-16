@@ -30,4 +30,70 @@ export const usersController = (app: Elysia) =>
           };
         }
       })
+
+      .get('/all', async ({ set }: Elysia.Set) => {
+        try {
+          const users = await User.find({});
+          return users;
+        } catch (e: unknown) {
+          set.status = 500;
+          return {
+            message: 'Unable to retrieve items from the database!',
+            status: 500,
+          };
+        }
+      })
+
+      .get('/:id', async (handler: Elysia.Handler) => {
+        try {
+          const { id } = handler.params;
+
+          const existingUser = await User.findById(id);
+
+          if (!existingUser) {
+            handler.set.status = 404;
+            return {
+              message: 'Requested resource was not found!',
+              status: 404,
+            };
+          }
+
+          return existingUser;
+        } catch (e: unknown) {
+          handler.set.status = 500;
+          return {
+            message: 'Unable to retrieve the resource!',
+            status: 500,
+          };
+        }
+      })
+
+      .delete('/:id', async (handler: Elysia.Handler) => {
+        try {
+          const { id } = handler.params;
+
+          const existingUser = await User.findById(id);
+
+          if (!existingUser) {
+            handler.set.status = 404;
+            return {
+              message: `User with id: ${id} was not found.`,
+              status: 404,
+            };
+          }
+
+          await User.findOneAndRemove({ _id: id });
+
+          return {
+            message: `Resource deleted successfully!`,
+            status: 200,
+          };
+        } catch (e: unknown) {
+          handler.set.status = 500;
+          return {
+            message: 'Unable to delete resource!',
+            status: 500,
+          };
+        }
+      })
   );
