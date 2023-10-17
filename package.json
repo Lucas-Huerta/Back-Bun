@@ -19,6 +19,7 @@
     "bcrypt": "^5.1.1",
     "bun-wifi-name": "^0.3.0",
     "elysia": "^0.7.17",
+    "elysia-autoroutes": "^0.4.0",
     "elysia-helmet": "^1.0.1",
     "mongoose": "^7.6.2"
   }

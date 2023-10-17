@@ -6,14 +6,14 @@ import { pokemonController } from '@/controllers/pokemon.controller';
 import { authController } from '@/controllers/auth.controller';
 import { cors } from '@elysiajs/cors';
 import { swagger } from '@elysiajs/swagger';
-import { helmet } from 'elysia-helmet';
+import { autoroutes } from 'elysia-autoroutes'
+// import { helmet } from 'elysia-helmet';
 import { html } from '@elysiajs/html'
 
 const PORT = process.env.PORT || 3000;
 export const app = new Elysia();
 
 app
-  .use(helmet())
   .use(html())
   .use(
       swagger({
@@ -41,6 +41,10 @@ app
     </html>
   `
   )
+  .use(autoroutes({
+    routesDir: './routes',
+    // prefix: '', // optional
+  }))
   .group('', (app: Elysia) =>
     app
       .use(cors({
