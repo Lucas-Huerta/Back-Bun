@@ -1,5 +1,5 @@
 import { Elysia, t } from 'elysia';
-import User from '../types/User'
+import User from "@/types/User";
 
 export const usersController = (app: Elysia) =>
   app.group("users", (app: Elysia) =>

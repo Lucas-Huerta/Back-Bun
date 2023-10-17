@@ -1,9 +1,9 @@
 import { Elysia, t } from 'elysia';
 import getWifiName from 'bun-wifi-name'
-import './database/db.setup';
-import { usersController } from './controllers/user.controller';
-import { pokemonController } from './controllers/pokemon.controller';
-import { authController } from './controllers/auth.controller';
+import '@/database/db.setup';
+import { usersController } from '@/controllers/user.controller';
+import { pokemonController } from '@/controllers/pokemon.controller';
+import { authController } from '@/controllers/auth.controller';
 import { cors } from '@elysiajs/cors';
 import { swagger } from '@elysiajs/swagger';
 import { helmet } from 'elysia-helmet';

@@ -1,6 +1,6 @@
 import { Elysia } from 'elysia';
 import * as bcrypt from 'bcrypt';
-import User from '../types/User';
+import User from '@/types/User';
 
 export const authController = (app: Elysia) =>
   app.group('auth', (app: Elysia) =>

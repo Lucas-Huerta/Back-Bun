@@ -1,5 +1,5 @@
 import { Elysia, t } from 'elysia';
-import Pokemon from '../types/Pokemon'
+import Pokemon from '@/types/Pokemon'
 
 export const pokemonController = (app: Elysia) =>
   app.group("pokemon", (app: Elysia) =>
