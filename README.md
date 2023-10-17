@@ -20,20 +20,22 @@ bun install
 
 ## Strucure du projet 🏛️
 
+```bash
 📁 src
 |__ 📁 controllers
 |   ├── 📄 auth.controller.ts
 |   ├── 📄 user.controller.ts
-|   ├── 📄 pokemon.controller.ts 
+|   ├── 📄 pokemon.controller.ts
 |__ 📁 database
 |   |__ 📄 db.setup.ts
 |__ 📁 types
-|   ├── 📄 Pokemon.ts 
-|   ├── 📄 User.ts 
+|   ├── 📄 Pokemon.ts
+|   ├── 📄 User.ts
 📄 index.ts
 .env
 .env-example
 package.json
+```
 
 ## Technologies incluses ⚙️
 

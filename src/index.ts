@@ -35,6 +35,7 @@ app
       .use(authController)
   )
   .listen(PORT, () => {
-    console.log("🤖 You just connected to :", getWifiName())
+    console.log("🤖 You just connected to :", getWifiName());
+    console.log(`✅ Swagger docs available at: ${app.server?.hostname}:${PORT}/v1/swagger`);
     console.log(`🦊 Elysia is running at ${app.server?.hostname}:${PORT}`);
   });
