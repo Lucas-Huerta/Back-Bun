@@ -6,11 +6,15 @@ import { pokemonController } from './controllers/pokemon.controller';
 import { authController } from './controllers/auth.controller';
 import { cors } from '@elysiajs/cors';
 import { swagger } from '@elysiajs/swagger';
+import { helmet } from 'elysia-helmet';
+import { html } from '@elysiajs/html'
 
 const PORT = process.env.PORT || 3000;
 export const app = new Elysia();
 
 app
+  .use(helmet())
+  .use(html())
   .use(
       swagger({
         path: '/v1/swagger',
@@ -22,7 +26,21 @@ app
         },
       })
   )
-  .get('/', () => 'Hello Bun.js!')
+  .get('/', () => 
+  `
+    <html lang='en'>
+        <head>
+            <title>My bun App</title>
+        </head>
+        <body>
+            <h1>Hello World</h1>
+            <p>My bun app is running</p>
+            <p>🤖 You just connected to : ${getWifiName()}</p>
+            <p>✅ Swagger docs available at: ${app.server?.hostname}:${PORT}/v1/swagger</p>
+        </body>
+    </html>
+  `
+  )
   .group('', (app: Elysia) =>
     app
       .use(cors({
