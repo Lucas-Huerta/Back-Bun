@@ -16,6 +16,7 @@
     "@elysiajs/swagger": "^0.7.3",
     "@grotto/logysia": "^0.0.5",
     "bcrypt": "^5.1.1",
+    "bun-wifi-name": "^0.3.0",
     "elysia": "^0.7.17",
     "mongoose": "^7.6.2"
   }

@@ -1,4 +1,5 @@
 import { Elysia, t } from 'elysia';
+import getWifiName from 'bun-wifi-name'
 import './database/db.setup';
 import { usersController } from './controllers/user.controller';
 import { pokemonController } from './controllers/pokemon.controller';
@@ -34,5 +35,6 @@ app
       .use(authController)
   )
   .listen(PORT, () => {
+    console.log("🤖 You just connected to :", getWifiName())
     console.log(`🦊 Elysia is running at ${app.server?.hostname}:${PORT}`);
   });

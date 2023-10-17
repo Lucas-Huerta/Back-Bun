@@ -18,9 +18,26 @@ cd nom-du-projet
 bun install
 ```
 
+## Strucure du projet 🏛️
+
+📁 src
+|__ 📁 controllers
+|   ├── 📄 auth.controller.ts
+|   ├── 📄 user.controller.ts
+|   ├── 📄 pokemon.controller.ts 
+|__ 📁 database
+|   |__ 📄 db.setup.ts
+|__ 📁 types
+|   ├── 📄 Pokemon.ts 
+|   ├── 📄 User.ts 
+📄 index.ts
+.env
+.env-example
+package.json
+
 ## Technologies incluses ⚙️
 
-Ce modèle de démarrage inclut les technologies suivantes :
+Ce modèle de démarrage inclut la technologie suivante :
 
 - [Bun](https://bun.sh/)
 
@@ -29,7 +46,7 @@ Ce modèle de démarrage inclut les technologies suivantes :
 Dans le répertoire du projet, vous pouvez exécuter les commandes suivantes :
 
 ```bash
-npm run start
+bun run start
 ```
 
 Lance l'application en mode watch mode => recharge la page à chaque sauvergarde.
