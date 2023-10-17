@@ -16,12 +16,12 @@ const schema = new Schema<IPokemon>(
       type: {
         type: String,
         required: true,
-        unique: true,
+        unique: false,
       },
       level: {
         type: Number,
         required: true,
-        select: false, 
+        unique: false,
       },
     },
     {

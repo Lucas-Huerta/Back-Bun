@@ -1,13 +1,11 @@
 import { Elysia, t } from 'elysia';
 import getWifiName from 'bun-wifi-name'
 import '@/database/db.setup';
-import { usersController } from '@/controllers/user.controller';
-import { pokemonController } from '@/controllers/pokemon.controller';
-import { authController } from '@/controllers/auth.controller';
+import { pokemonRoutes } from '@/routes/pokemon.routes';
+import { userRoutes } from './routes/user.routes'; 
+import { authRoutes } from './routes/auth.routes'; 
 import { cors } from '@elysiajs/cors';
 import { swagger } from '@elysiajs/swagger';
-import { autoroutes } from 'elysia-autoroutes'
-// import { helmet } from 'elysia-helmet';
 import { html } from '@elysiajs/html'
 
 const PORT = process.env.PORT || 3000;
@@ -41,10 +39,6 @@ app
     </html>
   `
   )
-  .use(autoroutes({
-    routesDir: './routes',
-    // prefix: '', // optional
-  }))
   .group('', (app: Elysia) =>
     app
       .use(cors({
@@ -52,9 +46,9 @@ app
         methods: ['GET', 'POST', 'DELETE', 'PUT'],
         allowedHeaders: ['Content-Type', 'Authorization'],
       }))
-      .use(usersController)
-      .use(pokemonController)
-      .use(authController)
+      .use(userRoutes)
+      .use(pokemonRoutes)
+      .use(authRoutes)
   )
   .listen(PORT, () => {
     console.log("🤖 You just connected to :", getWifiName());
