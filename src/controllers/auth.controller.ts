@@ -1,8 +1,8 @@
-import { Elysia } from 'elysia';
+import { Cookie, Elysia } from 'elysia';
 import * as bcrypt from 'bcrypt';
 import User from '@/types/User';
 
-export const register = async (handler: Elysia.Handler) => {
+export const register = async (handler: Elysia.Handler, setCookie) => {
     try {
         const { username, email, password } = handler.body;
 
@@ -36,6 +36,13 @@ export const register = async (handler: Elysia.Handler) => {
         // Save the user to the database
         await newUser.save();
 
+        setCookie('auth', newUser.username, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'strict',
+            maxAge: 100000000000000,
+        });
+
         handler.set.status = 201;
         return { message: 'Register successful!', status: 201 };
       } catch (error) {
@@ -45,7 +52,7 @@ export const register = async (handler: Elysia.Handler) => {
       }
 }
 
-export const login = async (handler: Elysia.Handler) => {
+export const login = async (handler: Elysia.Handler, setCookie) => {
     try {
         const { username, password } = handler.body;
 
@@ -64,6 +71,13 @@ export const login = async (handler: Elysia.Handler) => {
             handler.set.status = 401;
             return { message: 'Invalid password!', status: 401 };
         }
+
+        setCookie('auth', passwordUser.username, {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'strict',
+            maxAge: 100000000000000,
+        });
 
         // If the password is valid, return a success message
         handler.set.status = 200;

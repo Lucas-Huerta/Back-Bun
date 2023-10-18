@@ -3,7 +3,6 @@ import { Elysia, t } from 'elysia';
 // Define a middleware function to check if the user is authorized
 export const checkAuthorization = async (handler: Elysia.Handler) => {
   try {
-
     // Get the token from the Authorization header
     const token = handler.request.headers.authorization;
 
