@@ -1,10 +1,11 @@
-# Little back-end with Bun 🍡
+# Little back-end with Bun 🍡 & Elysia
 
-Un projet back-end créé avec [Bun](https://bun.sh/) dans le cadre du cours de Architecture back-end.
+Un projet back-end créé avec [Bun](https://bun.sh/) et [Elysia](https://elysiajs.com/) dans le cadre du cours de Architecture back-end.
 
 ## Aperçu 🕶️
 
-Ce projet est un petit back-end qui permet d'avoir une petite API en utilisant [Bun](https://bun.sh/), une technologie permettant de réaliser des API rapide.
+Ce projet est un petit back-end qui permet d'avoir une petite API en utilisant [Bun](https://bun.sh/), une technologie permettant de réaliser des API simples et plus rapide que NodeJS.
+Ce projet implémente aussi [Elysia](https://elysiajs.com/) qui est un framework TypeScript et optimisé par Bun [Bun](https://bun.sh/) avec une sécurité de type de bout en bout.
 
 ## Installation 🗂️
 
@@ -28,6 +29,10 @@ bun install
 |   ├── 📄 pokemon.controller.ts
 |__ 📁 database
 |   |__ 📄 db.setup.ts
+|__ 📁 routes
+|   ├── 📄 auth.routes.ts
+|   ├── 📄 user.routes.ts
+|   ├── 📄 pokemon.routes.ts
 |__ 📁 types
 |   ├── 📄 Pokemon.ts
 |   ├── 📄 User.ts
@@ -35,13 +40,29 @@ bun install
 .env
 .env-example
 package.json
+tsconfig.json
 ```
 
-## Technologies incluses ⚙️
+## Technologies / Plugins inclus ⚙️
 
-Ce modèle de démarrage inclut la technologie suivante :
+Ce modèle de démarrage inclut la technologie suivante 🧰 :
 
-- [Bun](https://bun.sh/)
+- [Bun](https://bun.sh/) 🍡
+
+Et il inclut aussi les plugins suivants 🪛 :
+
+- [Swagger](https://github.com/elysiajs/elysia-swagger) : Génère un Swagger de toute l'application à l'adresse
+
+```bash
+ /v1/swagger
+```
+
+- [CORS](https://github.com/elysiajs/elysia-cors) : Autorise les requêtes vers les origines définies
+- [HTML](https://github.com/elysiajs/elysia-html) : Permet d'injecter du code HTML
+
+En + 🐣 :
+
+- [Bun Wifi Name](https://github.com/wobsoriano/bun-wifi-name) : Récupère le nom de la wifi sur laquelle le serveur tourne
 
 ## Commandes disponibles ⌨️
 
