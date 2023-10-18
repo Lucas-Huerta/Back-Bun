@@ -1,11 +1,11 @@
-# Little back-end with Bun 🍡 & Elysia
+# Little back-end with Bun 🍡 & Elysia 🐺
 
-Un projet back-end créé avec [Bun](https://bun.sh/) et [Elysia](https://elysiajs.com/) dans le cadre du cours de Architecture back-end.
+Un projet back-end créé avec [Bun](https://bun.sh/) et [Elysia](https://elysiajs.com/) dans le cadre du cours d'Architecture back-end.
 
 ## Aperçu 🕶️
 
-Ce projet est un petit back-end qui permet d'avoir une petite API en utilisant [Bun](https://bun.sh/), une technologie permettant de réaliser des API simples et plus rapide que NodeJS.
-Ce projet implémente aussi [Elysia](https://elysiajs.com/) qui est un framework TypeScript et optimisé par Bun [Bun](https://bun.sh/) avec une sécurité de type de bout en bout.
+Ce projet est un petit back-end qui permet d'avoir une petite API en utilisant [Bun](https://bun.sh/), une technologie permettant de réaliser des API simples et plus rapide que NodeJS.  
+Ce projet implémente aussi [Elysia](https://elysiajs.com/) qui est un framework TypeScript et optimisé par [Bun](https://bun.sh/) avec une sécurité de type de bout en bout.
 
 ## Installation 🗂️
 
@@ -72,8 +72,9 @@ Dans le répertoire du projet, vous pouvez exécuter les commandes suivantes :
 bun run start
 ```
 
-Lance l'application en mode watch mode => recharge la page à chaque sauvergarde.
+Lance l'application en mode watch mode => recharge la page à chaque sauvegarde.
 
 ## Variables d'environnement ⍵
 
-Ce projet utilise des variables d'environnement pour configurer certains aspects de l'application. Vous pouvez créer un fichier .env à la racine du projet pour définir ces variables. Un fichier d'exemple est fourni dans env-example.
+Ce projet utilise des variables d'environnement pour configurer certains aspects de l'application. Vous pouvez créer un fichier .env à la racine du projet pour définir ces variables.  
+Un fichier d'exemple est fourni dans env-example.
