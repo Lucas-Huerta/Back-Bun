@@ -73,6 +73,7 @@ En + 🐣 :
 Chaque plugin ajouté à été pensé pour l'utilité de l'application.  
 Les plugins [Cookies](https://github.com/elysiajs/elysia-cookie) et [Elysia Jwt](https://github.com/elysiajs/elysia-jwt) ont été ajoutés pour la sécurité de l'application, pour faire en sorte qu'un utilisateur doit se connecter avant de pouvoir faire des requêtes modifiant la base de données.  
 Les [CORS](https://github.com/elysiajs/elysia-cors) permettent d'autoriser les requêtes vers des origines définie et donc permet dans le futur de pouvoir moduler les points d'entrés du serveur.  
+Un [Swagger](https://github.com/elysiajs/elysia-swagger) qui permet de réunir tous les points d'entrés de l'api sur une page. Ceci permet de faciliter la compréhension et l'usage des différents points d'entrés disponibles.  
 Ensuite, [HTML](https://github.com/elysiajs/elysia-html) permet d'injecter du code HTML sur un point d'entrée défini pour pouvoir mettre des données sur une page HTML afin faciliter l'accessiblité si des utilisteurs souhaitent voir des données ou autre.  
 Et pour finir, [Bun Wifi Name](https://github.com/wobsoriano/bun-wifi-name) et un plugin qui est en +, et qui permet de récupérer le nom de la wifi sur laquelle le serveur est connecté afin d'afficher n'importe ou ce nom.
 
