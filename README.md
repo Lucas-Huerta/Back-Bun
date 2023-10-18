@@ -59,6 +59,7 @@ Et il inclut aussi les plugins suivants 🪛 :
 
 - [CORS](https://github.com/elysiajs/elysia-cors) : Autorise les requêtes vers les origines définies
 - [HTML](https://github.com/elysiajs/elysia-html) : Permet d'injecter du code HTML
+- [Cookies](https://github.com/elysiajs/elysia-cookie) : Permet d'ajouter des cookies et de les avoir dans toute l'application
 
 En + 🐣 :
 
