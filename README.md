@@ -29,6 +29,8 @@ bun install
 |   ├── 📄 pokemon.controller.ts
 |__ 📁 database
 |   |__ 📄 db.setup.ts
+|__ 📁 middlewares
+|   |__ 📄 authorization.ts
 |__ 📁 routes
 |   ├── 📄 auth.routes.ts
 |   ├── 📄 user.routes.ts
@@ -47,23 +49,23 @@ tsconfig.json
 
 Ce modèle de démarrage inclut la technologie suivante 🧰 :
 
-- [Bun](https://bun.sh/) 🍡
+-   [Bun](https://bun.sh/) 🍡
 
 Et il inclut aussi les plugins suivants 🪛 :
 
-- [Swagger](https://github.com/elysiajs/elysia-swagger) : Génère un Swagger de toute l'application à l'adresse
+-   [Swagger](https://github.com/elysiajs/elysia-swagger) : Génère un Swagger de toute l'application à l'adresse
 
 ```bash
  /v1/swagger
 ```
 
-- [CORS](https://github.com/elysiajs/elysia-cors) : Autorise les requêtes vers les origines définies
-- [HTML](https://github.com/elysiajs/elysia-html) : Permet d'injecter du code HTML
-- [Cookies](https://github.com/elysiajs/elysia-cookie) : Permet d'ajouter des cookies et de les avoir dans toute l'application
+-   [CORS](https://github.com/elysiajs/elysia-cors) : Autorise les requêtes vers les origines définies
+-   [HTML](https://github.com/elysiajs/elysia-html) : Permet d'injecter du code HTML
+-   [Cookies](https://github.com/elysiajs/elysia-cookie) : Permet d'ajouter des cookies et de les avoir dans toute l'application
 
 En + 🐣 :
 
-- [Bun Wifi Name](https://github.com/wobsoriano/bun-wifi-name) : Récupère le nom de la wifi sur laquelle le serveur tourne
+-   [Bun Wifi Name](https://github.com/wobsoriano/bun-wifi-name) : Récupère le nom de la wifi sur laquelle le serveur tourne
 
 ## Commandes disponibles ⌨️
 
