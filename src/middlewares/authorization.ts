@@ -1,22 +1,24 @@
-import { Elysia, t } from 'elysia';
-
-// Define a middleware function to check if the user is authorized
-export const checkAuthorization = async (handler: Elysia.Handler) => {
+export const checkAuthorization = async (handler) => {
   try {
+    if (!handler.cookie.access_token) {
+      handler.status = 401;
+      return {
+        success: false,
+        message: "Unauthorized",
+        data: null,
+      };
+    }
     // Get the token from the Authorization header
-    const token = handler.request.headers.authorization;
+    const token = handler.cookie.access_token;
 
-    // Verify the token using Bun
-    const decodedToken = Bun.jwt.verify(token, process.env.JWT_SECRET);
+    // Verify the token in cookies
+    const decodedToken = await handler.jwt.verify(token);
 
     // If the token is invalid, return an error
     if (!decodedToken) {
       handler.set.status = 401;
       return { message: 'Invalid token!', status: 401 };
     }
-
-    // If the token is valid, call the next middleware function
-    await handler.next();
   } catch (error) {
     console.error(error);
     handler.set.status = 500;

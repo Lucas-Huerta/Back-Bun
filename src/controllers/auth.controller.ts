@@ -5,7 +5,6 @@ import User from '@/types/User';
 export const register = async (handler: Elysia.Handler, setCookie) => {
     try {
         const { username, email, password } = handler.body;
-
         // Check if user already exists
         const existingUser = await User.findOne({
             $or: [{ username }, { email }],
@@ -14,6 +13,7 @@ export const register = async (handler: Elysia.Handler, setCookie) => {
             handler.set.status = 409;
             return { message: 'User already exists!', status: 409 };
         }
+
         // Hash the password using bcrypt
         // const hashedPassword = await Bun.password.hash(password, {
         //     algorithm: "bcrypt",
@@ -36,12 +36,12 @@ export const register = async (handler: Elysia.Handler, setCookie) => {
         // Save the user to the database
         await newUser.save();
 
-        setCookie('auth', newUser.username, {
+        const accessToken = await handler.jwt.sign(process.env.JWT_SECRET, {
             httpOnly: true,
-            secure: true,
-            sameSite: 'strict',
-            maxAge: 100000000000000,
+            maxAge: 7 * 86400,
         });
+
+        await setCookie("access_token", accessToken);
 
         handler.set.status = 201;
         return { message: 'Register successful!', status: 201 };
@@ -72,16 +72,18 @@ export const login = async (handler: Elysia.Handler, setCookie) => {
             return { message: 'Invalid password!', status: 401 };
         }
 
-        setCookie('auth', passwordUser.username, {
+        const accessToken = await handler.jwt.sign(process.env.JWT_SECRET, {
             httpOnly: true,
-            secure: true,
-            sameSite: 'strict',
-            maxAge: 100000000000000,
+            maxAge: 7 * 86400,
         });
+
+        await setCookie("access_token", accessToken);
+        handler.set.cookie = accessToken;
 
         // If the password is valid, return a success message
         handler.set.status = 200;
-        return { message: 'Login successful!', status: 200 };
+        handler.message = 'Login successful!';
+        return { handler };
     } catch (error) {
         console.error(error);
         handler.set.status = 500;

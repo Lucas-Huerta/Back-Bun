@@ -40,13 +40,6 @@ app
     </html>
   `
   )
-  .use(
-    jwt({
-      name: 'jwt',
-      secret: 'Lucas',
-      exp: '100000000000000',
-    })
-  )
   .group('', (app: Elysia) =>
     app
       .use(cors({
