@@ -7,7 +7,6 @@ import { authRoutes } from './routes/auth.routes';
 import { cors } from '@elysiajs/cors';
 import { swagger } from '@elysiajs/swagger';
 import { html } from '@elysiajs/html';
-import { jwt } from '@elysiajs/jwt'
 
 const PORT = process.env.PORT || 3000;
 export const app = new Elysia();
