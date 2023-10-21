@@ -63,6 +63,7 @@ Et il inclut aussi les plugins suivants 🪛 :
 -   [HTML](https://github.com/elysiajs/elysia-html) : Permet d'injecter du code HTML
 -   [Cookies](https://github.com/elysiajs/elysia-cookie) : Permet d'ajouter des cookies et qu'ils soient accessibles dans toute l'application
 -   [Elysia Jwt](https://github.com/elysiajs/elysia-jwt) : Permet la génération et la vérification d'un token
+-   [Mongoose](https://bun.sh/guides/ecosystem/mongoose) : Permet la connexion à la base de donnée Mongo Db et la génération des schémas de données
 
 En + 🐣 :
 
@@ -75,6 +76,7 @@ Les plugins [Cookies](https://github.com/elysiajs/elysia-cookie) et [Elysia Jwt]
 Les [CORS](https://github.com/elysiajs/elysia-cors) permettent d'autoriser et de prendre en charge les requêtes provenant de divers origines et donc permet dans le futur de pouvoir moduler les points d'entrés sécurisés du serveur.  
 Un [Swagger](https://github.com/elysiajs/elysia-swagger) qui permet de réunir tous les points d'entrés de l'api sur une page en indiquant l'url, les paramètres à prendre en charge et même de tester le point. Ceci permet de faciliter la compréhension et l'usage des différents points d'entrés disponibles.  
 Ensuite, [HTML](https://github.com/elysiajs/elysia-html) permet d'injecter du code HTML sur un point d'entrée défini pour pouvoir mettre des données sur une page HTML afin faciliter l'accessiblité si des utilisteurs souhaitent voir des données ou autre.  
+Aussi, [Mongoose](https://bun.sh/guides/ecosystem/mongoose), un plugin nécéssaire, permettant de connecter le boilerplate avec une base de donnée Mongo DB. La connexion se fait via les variables du .env, un .env-example est mit à disposition afin d'avoir la même configuration.  
 Et pour finir, [Bun Wifi Name](https://github.com/wobsoriano/bun-wifi-name) et un plugin qui est en +, et qui permet de récupérer le nom de la wifi sur laquelle le serveur est connecté afin d'afficher n'importe ou ce nom.
 
 ## Commandes disponibles ⌨️
